@@ -8,24 +8,41 @@ $(document).ready(function() {
   	navigation : false,
     singleItem : true,
     slideSpeed : 1000,
-    pagination:false,
+    pagination:true,
     afterAction : syncPosition,
     responsiveRefreshRate : 200,
   });
  
-  sync2.owlCarousel({
+  sync2.owlCarousel({	
   	navigation : false,
     items : 15,
-    itemsDesktop      : [1199,10],
+    /*itemsDesktop      : [1199,10],
     itemsDesktopSmall     : [979,10],
     itemsTablet       : [768,8],
-    itemsMobile       : [479,4],
-    pagination:false,
+    itemsMobile       : [479,4],*/
+    pagination:true,
     responsiveRefreshRate : 100,
     afterInit : function(el){
       el.find(".owl-item").eq(0).addClass("synced");
     }
   });
+
+
+  document.getElementById("sync2").style.display = "none";
+
+  function SwitchtoThumbnail(){
+
+  	document.getElementById("sync2").style.display = "block";
+  	document.getElementById("sync1").style.display = "none";
+
+
+  }
+
+  function SwitchBack(){
+  	document.getElementById("sync2").style.display = "none";
+  	document.getElementById("sync1").style.display = "block";
+
+  }
  
   function syncPosition(el){
     var current = this.currentItem;
