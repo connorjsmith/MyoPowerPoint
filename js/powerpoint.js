@@ -1,11 +1,5 @@
 $(document).ready(function() {
  
-  $("#owl-example").owlCarousel();
- 
-});
-
-$(document).ready(function() {
- 
   $("#owl-demo").owlCarousel({
  
       navigation : true, // Show next and prev buttons
@@ -21,5 +15,36 @@ $(document).ready(function() {
       // itemsMobile : false
  
   });
+
+  Myo.on('fist', function() {
+    console.log('Fist!');
+    this.vibrate();
+  });
+
+  Myo.on('fingers_spread', function() {
+    console.log('Fingers spread!');
+    this.vibrate();
+  });
+
+  Myo.on('wave_in', function() {
+    console.log('Wave in!');
+    this.vibrate();
+  });
+
+  Myo.on('wave_out', function() {
+    console.log('Wave out!');
+    this.vibrate();
+  });
+
+  Myo.on('double_tap', function() {
+    console.log('Double tap!');
+    this.vibrate();
+  });
+
+  Myo.on('connected', function() {
+    Myo.setLockingPolicy("none");
+  });
+
+  Myo.connect();
  
 });
