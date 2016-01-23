@@ -1,6 +1,7 @@
 body {
     padding: 0px;
     margin: 0px;
+    background-color: #eee;
 }
 
 .item {
@@ -15,11 +16,18 @@ body {
 }
 
 #sync2 {
-	position: relative;
-	top: 50%;
+	position: absolute;
+	top: 25%;
 	transform: translateY(-50%);
 }
 
+#sync2 .item > * {
+    box-shadow: 5px 5px 3px #888888;
+}
+
+#sync1, #sync2 {
+    transition: transform 300ms ease, opacity 300ms ease;
+}
 
 #sync1 .item{
     color: #FFF;

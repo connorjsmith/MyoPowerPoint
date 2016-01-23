@@ -13,6 +13,7 @@ $(document).ready(function() {
     center: true,
     loop: false,
     items: 3,
+    margin: 10,
     responsiveRefreshRate : 100,
     afterInit: function(el) {
       el.find(".owl-item").eq(0).addClass("synced");
@@ -20,16 +21,22 @@ $(document).ready(function() {
   });
 
 
-  document.getElementById("sync2").style.display = "none";
-
+  document.getElementById("sync2").style.transform = "scale(0.2)";
+  document.getElementById("sync2").style.opacity = "0";
   function SwitchtoThumbnail(){
-  	document.getElementById("sync2").style.display = "block";
-  	document.getElementById("sync1").style.display = "none";
+  	document.getElementById("sync2").style.opacity = "1";
+    document.getElementById("sync2").style.transform = "scale(1)";
+    // shrink and hide sync1
+    document.getElementById("sync1").style.transform = "scale(0.2)";
+  	document.getElementById("sync1").style.opacity = "0";
   }
 
   function SwitchBack(){
-  	document.getElementById("sync2").style.display = "none";
-  	document.getElementById("sync1").style.display = "block";
+	document.getElementById("sync1").style.opacity = "1";
+    document.getElementById("sync1").style.transform = "scale(1)";
+    // shrink and hide sync1
+    document.getElementById("sync2").style.transform = "scale(0.2)";
+  	document.getElementById("sync2").style.opacity = "0";
   }
  
   var owl1 = sync1.owlCarousel();
