@@ -44,6 +44,39 @@ $(document).ready(function() {
     var number = $(this).data("owlItem");
     sync1.trigger("owl.goTo",number);
   });
+
+  var owl = $("#owl-demo").data('owlCarousel');
+
+  Myo.on('fist', function() {
+    console.log('Fist!');
+    this.vibrate();
+  });
+
+  Myo.on('fingers_spread', function() {
+    console.log('Fingers spread!');
+    this.vibrate();
+  });
+
+  Myo.on('wave_in', function() {
+    console.log('Wave in!');
+    owl.prev();
+  });
+
+  Myo.on('wave_out', function() {
+    console.log('Wave out!');
+    owl.next();
+  });
+
+  Myo.on('double_tap', function() {
+    console.log('Double tap!');
+    this.vibrate();
+  });
+
+  Myo.on('connected', function() {
+    Myo.setLockingPolicy("none");
+  });
+
+  Myo.connect();
  
   function center(number){
     var sync2visible = sync2.data("owlCarousel").owl.visibleItems;
