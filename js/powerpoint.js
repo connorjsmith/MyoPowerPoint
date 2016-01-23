@@ -57,7 +57,7 @@ $(document).ready(function() {
     Myo.on('fingers_spread', switchToThumbnail);
     Myo.on('wave_in', prevSlide);
     Myo.on('wave_out', nextSlide);
-    Myo.on('double_tap', linkOpen);
+    Myo.on('double_tap', linkSelectMode);
   }
 
   function linkMode() {
@@ -84,8 +84,17 @@ $(document).ready(function() {
     Myo.on('wave_out', nextSlide);
   }
  
-  function linkOpen() {
+  function linkSelectMode() {
+    console.log('Double tap: link select mode!');
+    var links = $('.owl-item.active a');
+    // cycle through the links on the slide
+    var selectedUrl = links[0].href;
+    linkOpen(selectedUrl);
+  }
+  
+  function linkOpen(url) {
     console.log('Double tap: link open!');
+    document.getElementById("link").src = url;
     document.getElementById("link").style.display = "block";
     linkMode();
   }
