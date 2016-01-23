@@ -16,6 +16,8 @@ $(document).ready(function() {
  
   });
 
+  var owl = $("#owl-demo").data('owlCarousel');
+
   Myo.on('fist', function() {
     console.log('Fist!');
     this.vibrate();
@@ -28,12 +30,12 @@ $(document).ready(function() {
 
   Myo.on('wave_in', function() {
     console.log('Wave in!');
-    this.vibrate();
+    owl.prev();
   });
 
   Myo.on('wave_out', function() {
     console.log('Wave out!');
-    this.vibrate();
+    owl.next();
   });
 
   Myo.on('double_tap', function() {
