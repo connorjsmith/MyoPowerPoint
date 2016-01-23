@@ -109,12 +109,12 @@ $(document).ready(function() {
 
   function prevLink() {
     var previous = $('.owl-item.active a:focus').prev('a');
-    if (previous !== null)
+    if (previous.length !== 0)
         previous.focus();
   }
   function nextLink() {
     var next = $('.owl-item.active a:focus').next('a');
-    if (next !== null)
+    if (next.length !== 0)
         next.focus();
   }
   
