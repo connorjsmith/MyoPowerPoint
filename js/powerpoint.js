@@ -91,7 +91,7 @@ $(document).ready(function() {
     if (links.length === 0) return; // no links to select
     if (links.length > 1) {
         // focus the first link
-        links[0].focus();
+        $(links[0]).addClass('focused-item');
         // bind the functions
         Myo.off('fist');
         Myo.off('fingers_spread');
@@ -109,17 +109,21 @@ $(document).ready(function() {
   }
 
   function prevLink() {
-    var previous = $('.owl-item.active a:focus').prev('a');
-    if (previous.length !== 0)
-        previous.focus();
+    var previous = $('.focused-item').prev('a');
+    if (previous.length !== 0){
+      $('.focused-item').removeClass('.focused-item');
+      previous.addClass('focused-item');
+    }
   }
   function nextLink() {
-    var next = $('.owl-item.active a:focus').next('a');
-    if (next.length !== 0)
-        next.focus();
+    var next = $('.focused-item').next('a');
+    if (next.length !== 0) {
+        $('.focused-item').removeClass('.focused-item');
+        next.addClass('focused-item');
+    }
   }
   function selectLink() {
-    linkOpen($('.owl-item.active a:focus')[0].href);
+    linkOpen($('.focused-item')[0].href);
   }
   
   function linkOpen(url) {
@@ -134,7 +138,7 @@ $(document).ready(function() {
   function linkClose() {
     console.log('Fist: link close!');
     document.getElementById("link").style.display = "none";
-    $('body').focus();
+    $('.focused-item').removeClass('focused-item');
     slideMode();
   }
 

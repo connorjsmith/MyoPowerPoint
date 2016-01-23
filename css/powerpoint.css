@@ -20,7 +20,7 @@ h1 {
 	font-weight: bold;
 }
 
-a:focus {
+.focused-item {
     color: red;
 }
 #link {
