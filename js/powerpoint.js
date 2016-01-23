@@ -88,7 +88,6 @@ $(document).ready(function() {
     console.log('Double tap: link select mode!');
     var links = $('.owl-item.active a');
     // cycle through the links on the slide
-    var index = 0;
     if (links.length === 0) return; // no links to select
     if (links.length > 1) {
         // focus the first link
@@ -105,6 +104,7 @@ $(document).ready(function() {
         Myo.on('wave_out', nextLink);
         Myo.on('fist', linkClose);
     }
+    linkOpen(links[0].href);
   }
 
   function prevLink() {
@@ -116,6 +116,9 @@ $(document).ready(function() {
     var next = $('.owl-item.active a:focus').next('a');
     if (next.length !== 0)
         next.focus();
+  }
+  function selectLink() {
+    linkOpen($('.owl-item.active a:focus')[0].href);
   }
   
   function linkOpen(url) {
