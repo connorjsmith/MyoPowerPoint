@@ -111,14 +111,14 @@ $(document).ready(function() {
   function prevLink() {
     var previous = $('.focused-item').prev('a');
     if (previous.length !== 0){
-      $('.focused-item').removeClass('.focused-item');
+      $('.focused-item').removeClass('focused-item');
       previous.addClass('focused-item');
     }
   }
   function nextLink() {
     var next = $('.focused-item').next('a');
     if (next.length !== 0) {
-        $('.focused-item').removeClass('.focused-item');
+        $('.focused-item').removeClass('focused-item');
         next.addClass('focused-item');
     }
   }
