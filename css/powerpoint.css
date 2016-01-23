@@ -5,14 +5,13 @@ body {
 }
 
 .item {
+    display: block;
     height: 100vh;
     width: 100vw;
 }
 
-.item img{
-    display: block;
-    width: 100%;
-    height: 100%;
+h1 {
+	color: red;
 }
 
 #sync2 {
