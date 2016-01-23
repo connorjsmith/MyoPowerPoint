@@ -3,8 +3,11 @@
 *	v1.3.3
 */
 
+.owl-theme .owl-pagination {
+	margin-top: -30px;
+}
+
 .owl-theme .owl-controls{
-	margin-top: 10px;
 	text-align: center;
 }
 

@@ -3,10 +3,14 @@
  *	v1.3.3
  */
 
- #owl-demo .item img{
-    display: block;
-    width: 100%;
-    height: auto;
+#sync2 .owl-wrapper {
+	display:flex !important;
+	width: 100vw !important;
+	justify-content:center;
+	align-items:center;
+}
+#sync2 .owl-carousel .owl-item{
+	flex: 1;
 }
 
 /* clearfix */
@@ -43,6 +47,7 @@
 	transition: height 500ms ease-in-out;
 }
 	
+
 .owl-carousel .owl-item{
 	float: left;
 }
