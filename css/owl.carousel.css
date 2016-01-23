@@ -3,6 +3,12 @@
  *	v1.3.3
  */
 
+ #owl-demo .item img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 /* clearfix */
 .owl-carousel .owl-wrapper:after {
 	content: ".";
