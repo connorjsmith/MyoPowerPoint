@@ -103,8 +103,9 @@ $(document).ready(function() {
         Myo.on('wave_in', prevLink);
         Myo.on('wave_out', nextLink);
         Myo.on('fist', linkClose);
+    } else {
+      linkOpen(links[0].href);
     }
-    linkOpen(links[0].href);
   }
 
   function prevLink() {
@@ -133,6 +134,7 @@ $(document).ready(function() {
   function linkClose() {
     console.log('Fist: link close!');
     document.getElementById("link").style.display = "none";
+    $('body').focus();
     slideMode();
   }
 
