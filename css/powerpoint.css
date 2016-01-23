@@ -20,6 +20,16 @@ h1 {
 	font-weight: bold;
 }
 
+#link {
+    position: fixed;
+    top: 5%;
+    left: 5%;
+    height: 90%;
+    width: 90%;
+    display: none;
+    z-index: 100;
+}
+
 #slide1 {
 	background-color: #FF6766;
 }

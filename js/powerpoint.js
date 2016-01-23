@@ -94,7 +94,9 @@ $(document).ready(function() {
   
   function linkOpen(url) {
     console.log('Double tap: link open!');
-    document.getElementById("link").src = url;
+    if (document.getElementById("link").src !== url) {
+        document.getElementById("link").src = url;
+    }
     document.getElementById("link").style.display = "block";
     linkMode();
   }
