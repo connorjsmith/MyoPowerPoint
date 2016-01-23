@@ -88,8 +88,34 @@ $(document).ready(function() {
     console.log('Double tap: link select mode!');
     var links = $('.owl-item.active a');
     // cycle through the links on the slide
-    var selectedUrl = links[0].href;
-    linkOpen(selectedUrl);
+    var index = 0;
+    if (links.length === 0) return; // no links to select
+    if (links.length > 1) {
+        // focus the first link
+        links[0].focus();
+        // bind the functions
+        Myo.off('fist');
+        Myo.off('fingers_spread');
+        Myo.off('wave_in');
+        Myo.off('wave_out');
+        Myo.off('double_tap');
+
+        Myo.on('double_tap', selectLink);
+        Myo.on('wave_in', prevLink);
+        Myo.on('wave_out', nextLink);
+        Myo.on('fist', linkClose);
+    }
+  }
+
+  function prevLink() {
+    var previous = $('.owl-item.active a:focus').prev('a');
+    if (previous !== null)
+        previous.focus();
+  }
+  function nextLink() {
+    var next = $('.owl-item.active a:focus').next('a');
+    if (next !== null)
+        next.focus();
   }
   
   function linkOpen(url) {

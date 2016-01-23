@@ -20,6 +20,9 @@ h1 {
 	font-weight: bold;
 }
 
+a:focus {
+    color: red;
+}
 #link {
     position: fixed;
     top: 5%;
