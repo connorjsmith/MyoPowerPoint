@@ -20,25 +20,100 @@ $(document).ready(function() {
     }
   });
 
-
   document.getElementById("sync2").style.transform = "scale(0.2)";
   document.getElementById("sync2").style.opacity = "0";
-  function SwitchtoThumbnail(){
+
+  function switchToThumbnail() {
+    console.log('Fingers spread: switch to thumbnail!');
   	document.getElementById("sync2").style.opacity = "1";
     document.getElementById("sync2").style.transform = "scale(1)";
-    // shrink and hide sync1
+
+    // Shrink and hide sync1.
     document.getElementById("sync1").style.transform = "scale(0.2)";
   	document.getElementById("sync1").style.opacity = "0";
+
+    thumbnailMode();
   }
 
-  function SwitchBack(){
-	document.getElementById("sync1").style.opacity = "1";
+  function switchBack() {
+	 console.log('Fist: switch back!');
+    document.getElementById("sync1").style.opacity = "1";
     document.getElementById("sync1").style.transform = "scale(1)";
-    // shrink and hide sync1
+    
+    // Shrink and hide sync1.
     document.getElementById("sync2").style.transform = "scale(0.2)";
   	document.getElementById("sync2").style.opacity = "0";
+
+    slideMode();
+  }
+
+  function slideMode() {
+    Myo.off('fist');
+    Myo.off('fingers_spread');
+    Myo.off('wave_in');
+    Myo.off('wave_out');
+    Myo.off('double_tap');
+
+    Myo.on('fingers_spread', switchToThumbnail);
+    Myo.on('wave_in', prevSlide);
+    Myo.on('wave_out', nextSlide);
+    Myo.on('double_tap', linkOpen);
+  }
+
+  function linkMode() {
+    Myo.off('fist');
+    Myo.off('fingers_spread');
+    Myo.off('wave_in');
+    Myo.off('wave_out');
+    Myo.off('double_tap');
+
+    Myo.on('fist', linkClose);
+    Myo.on('wave_in', scrollUp);
+    Myo.on('wave_out', scrollDown);
+  }
+
+  function thumbnailMode() {
+    Myo.off('fist');
+    Myo.off('fingers_spread');
+    Myo.off('wave_in');
+    Myo.off('wave_out');
+    Myo.off('double_tap');
+
+    Myo.on('fist', switchBack);
+    Myo.on('wave_in', prevSlide);
+    Myo.on('wave_out', nextSlide);
   }
  
+  function linkOpen() {
+    console.log('Double tap: link open!');
+    document.getElementById("link").style.display = "block";
+    linkMode();
+  }
+
+  function linkClose() {
+    console.log('Fist: link close!');
+    document.getElementById("link").style.display = "none";
+    slideMode();
+  }
+
+  function scrollUp() {
+    console.log('Wave in: scroll up!');
+  }
+
+  function scrollDown() {
+    console.log('Wave out: scroll down!');
+  }
+
+  function prevSlide() {
+    console.log('Wave in: previous slide!');
+    owl1.trigger('prev.owl.carousel');
+  }
+
+  function nextSlide() {
+    console.log('Wave out: next slide!');
+    owl1.trigger('next.owl.carousel');
+  }
+
   var owl1 = sync1.owlCarousel();
   var owl2 = sync2.owlCarousel();
 
@@ -50,37 +125,10 @@ $(document).ready(function() {
     owl2.trigger('prev.owl.carousel');
   });
 
-  Myo.on('fist', function() {
-    console.log('Fist!');
-    SwitchBack();
-    this.vibrate();
-  });
-
-  Myo.on('fingers_spread', function() {
-    console.log('Fingers spread!');
-    SwitchtoThumbnail();
-    this.vibrate();
-  });
-
-  Myo.on('wave_in', function() {
-    console.log('Wave in!');
-    owl1.trigger('prev.owl.carousel');
-  });
-
-  Myo.on('wave_out', function() {
-    console.log('Wave out!');
-    owl1.trigger('next.owl.carousel');
-  });
-
-  Myo.on('double_tap', function() {
-    console.log('Double tap!');
-    this.vibrate();
-  });
-
   Myo.on('connected', function() {
     Myo.setLockingPolicy("none");
+    slideMode();
   });
 
   Myo.connect();
-
 });
