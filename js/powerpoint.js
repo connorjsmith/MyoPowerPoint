@@ -23,17 +23,13 @@ $(document).ready(function() {
   document.getElementById("sync2").style.display = "none";
 
   function SwitchtoThumbnail(){
-
   	document.getElementById("sync2").style.display = "block";
   	document.getElementById("sync1").style.display = "none";
-
-
   }
 
   function SwitchBack(){
   	document.getElementById("sync2").style.display = "none";
   	document.getElementById("sync1").style.display = "block";
-
   }
  
   var owl1 = sync1.owlCarousel();
@@ -49,11 +45,13 @@ $(document).ready(function() {
 
   Myo.on('fist', function() {
     console.log('Fist!');
+    SwitchBack();
     this.vibrate();
   });
 
   Myo.on('fingers_spread', function() {
     console.log('Fingers spread!');
+    SwitchtoThumbnail();
     this.vibrate();
   });
 
