@@ -56,6 +56,8 @@ ul {
 	font-family: Lato, Helvetica;
 	font-size: 1.5em;
 	margin: 5%;
+}
+
 .focused-item {
     color: red;
 }
@@ -67,6 +69,10 @@ ul {
     width: 90%;
     display: none;
     z-index: 100;
+}
+
+#home {
+    background-color: #60646D;
 }
 
 #slide1 {
