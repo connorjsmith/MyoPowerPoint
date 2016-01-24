@@ -13,7 +13,24 @@ body {
     width: 100vw;
 }
 
-#logo {
+#title {
+    font-size: 4em;
+    margin-left: 40%;
+    margin-top: -15%;
+
+}
+
+#myopic {
+    margin-left:5%;
+    margin-top:5%;
+}
+
+#enter {
+    margin-left:50%;
+    color: white;
+    font-family: Lato, Helvetica;
+    font-size: 2.5em;
+    font-weight: bold;
 
 }
 
@@ -28,7 +45,7 @@ p{
 	text-align: left;
 	color: white;
 	font-family: Lato, Helvetica;
-	font-size: 1.5em;
+	font-size: 2em;
 	margin: 5%;
 }
 
@@ -41,8 +58,11 @@ a {
 }
 
 .whiteslide td{
-	padding: 22px;
+	padding: 25px;
 }
+
+
+
 
 td {
 	text-align:center;
@@ -54,7 +74,7 @@ ul {
 	text-align: left;
 	color: white;
 	font-family: Lato, Helvetica;
-	font-size: 1.5em;
+	font-size: 2em;
 	margin: 5%;
 }
 
@@ -72,7 +92,7 @@ ul {
 }
 
 #home {
-    background-color: #60646D;
+    background-color: #FF6766;
 }
 
 #slide1 {
