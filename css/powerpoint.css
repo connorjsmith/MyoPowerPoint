@@ -2,6 +2,7 @@ body {
     padding: 0px;
     margin: 0px;
     background-color: #eee;
+    overflow: hidden;
 }
 
 .item {
@@ -55,6 +56,17 @@ ul {
 	font-family: Lato, Helvetica;
 	font-size: 1.5em;
 	margin: 5%;
+.focused-item {
+    color: red;
+}
+#link {
+    position: fixed;
+    top: 5%;
+    left: 5%;
+    height: 90%;
+    width: 90%;
+    display: none;
+    z-index: 100;
 }
 
 #slide1 {
