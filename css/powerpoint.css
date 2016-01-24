@@ -12,11 +12,49 @@ body {
     width: 100vw;
 }
 
+#logo {
+
+}
+
 h1 {
 	color: white;
 	font-family: Lato, Helvetica;
 	font-size: 3em;
 	font-weight: bold;
+}
+
+p{
+	text-align: left;
+	color: white;
+	font-family: Lato, Helvetica;
+	font-size: 1.5em;
+	margin: 5%;
+}
+
+a {
+	color: white;
+}
+
+.whiteslide h1, .whiteslide p, .whiteslide td{
+	color: #3498db;
+}
+
+.whiteslide td{
+	padding: 22px;
+}
+
+td {
+	text-align:center;
+	color: white;
+	font-family: Lato, Helvetica;
+}
+
+ul {
+	text-align: left;
+	color: white;
+	font-family: Lato, Helvetica;
+	font-size: 1.5em;
+	margin: 5%;
 }
 
 #slide1 {
